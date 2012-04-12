@@ -1,0 +1,36 @@
+.TH "mono-build" 1
+.SH NAME
+mono-build \- Compile and install different versions of Mono.
+.SH SYNOPSIS
+.PP
+.B mono-build [options] definition prefix
+.SH DESCRIPTION
+\fImono-build\fP provides a simple way to compile and install different versions of Mono on UNIX-like systems.
+.TP
+\fBdefinition\fR
+Which built-in definition do you want to install.  See option --definitions to display built-in definitions.  This can be a path to a definition file as well.
+.TP
+\fBprefix\fR
+Where you want the compiled version to be installed.
+.SH OPTIONS
+The following options are available:
+.TP
+\fB--version\fR
+Displays version information.
+.TP
+\fB-h/--help\fR
+Displays usage instructions.
+.TP
+\fB-v/--verbose\fR
+Directs compilation output to stdout.
+.TP
+\fB--definitions\fR
+This option lists all built-in definitions located under $PREFIX/share/mono-build
+.SH EXAMPLES
+mono-build --definitions
+.nf
+mono-build --verbose 2.10.9 $HOME/local/mono-2.10.9
+.nf
+mono-build 2.11.0 $HOME/local/mono-2.11.0
+.SH AUTHOR
+Written by Dale Ragan <dale@ragan.io>
