@@ -98,11 +98,19 @@ version() {
 
 usage() {
 	version
-	echo "usage: mono-build definition prefix"
-	
+	{ echo "usage: mono-build definition prefix"
+	  echo "       mono-build --definitions"
+	} >&2
 	if [ -z "$1" ]; then
 		exit 1
 	fi
+}
+
+list_definitions() {
+	{ for definition in "${MONO_BUILD_ROOT}/definitions/"*; do
+		echo "${definition##*/}"
+	  done
+	} | sort
 }
 
 MONO_BUILD_ROOT="$(abs_dirname "$0")/.."
@@ -110,10 +118,19 @@ MONO_BUILD_ROOT="$(abs_dirname "$0")/.."
 case "$1" in
 "-h" | "--help" )
 	usage without_exiting
+	{ echo
+	  echo "Options:"
+	  echo
+	  echo "  --definitions    List all built-in definitions"
+	} >&2
 	exit 0
 	;;
 "--version" )
 	version
+	exit 0
+	;;
+"--definitions" )
+	list_definitions
 	exit 0
 	;;
 esac
