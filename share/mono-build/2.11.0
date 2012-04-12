@@ -1,0 +1,2 @@
+install_package "libgdiplus-2.10.9" "http://download.mono-project.com/sources/libgdiplus/libgdiplus-2.10.9.tar.bz2"
+install_package "mono-2.11" "http://download.mono-project.com/sources/mono/mono-2.11.0.tar.bz2" mono
