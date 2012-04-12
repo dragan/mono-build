@@ -4,6 +4,20 @@ MONO_BUILD_VERSION="0.1.0"
 
 set -E
 
+abs_dirname() {
+	local cwd="$(pwd)"
+	local path="$1"
+
+	while [ -n "$path" ]; do
+		cd "${path%/*}"
+		local name="${path##*/}"
+		path="$(readlink "$name" || true)"
+	done
+
+	pwd
+	cd "$cwd"
+}
+
 install_package() {
 	local cwd="$(pwd)"
 	local package_name="$1"
@@ -86,12 +100,19 @@ usage() {
 	exit 1
 }
 
+MONO_BUILD_ROOT="$(abs_dirname "$0")/.."
+
 DEFINITION_PATH="$1"
 if [ -z "$DEFINITION_PATH" ]; then
 	usage
 elif [ ! -e "$DEFINITION_PATH" ]; then
-	echo "mono-build: definition not found: ${DEFINITION_PATH}" >&2
-	exit 1
+	BUILTIN_DEFINITION_PATH="${MONO_BUILD_ROOT}/definitions/${DEFINITION_PATH}"
+	if [[ -e "$BUILTIN_DEFINITION_PATH" ]]; then
+		DEFINITION_PATH="$BUILTIN_DEFINITION_PATH"
+	else
+		echo "mono-build: definition not found: ${DEFINITION_PATH}" >&2
+		exit 1
+	fi
 fi
 
 PREFIX_PATH="$2"
