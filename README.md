@@ -16,7 +16,7 @@ Included is an uninstall script as well, just run it to remove mono-build.
 
 ## Installing Mono
 
-To install a Mono version, run the `mono-build` command with the path to a definition file (A number of [built-in definitions](https://github.com/dragan/mono-build/tree/master/share/mono-build) may be specified instead.) and the path where you want to install it.
+To install a Mono version, run the `mono-build` command with the path to a definition file (A number of [built-in definitions](https://github.com/dragan/mono-build/tree/unstable/share/mono-build) may be specified instead.) and the path where you want to install it.
 
     $ mono-build 2.10.9 /Users/dragan/local/mono-2.10.9
     ...
