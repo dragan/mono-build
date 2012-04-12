@@ -25,6 +25,10 @@ To install a Mono version, run the `mono-build` command with the path to a defin
     Copyright (C) 2002-2011 Novell, Inc, Xamarin, Inc and Contributors. www.mono-project.com
     ...
 
+## Thanks
+
+This project was heavily inspired by the [ruby-build project by Sam Stephenson](https://github.com/sstephenson/ruby-build). 
+
 ## License
 mono-build is released under the [MIT License][mit-license]. See LICENSE for more information.
 
