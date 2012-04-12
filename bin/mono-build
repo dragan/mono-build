@@ -30,6 +30,8 @@ install_package() {
 	cd "$package_name"
 	build_package "$package_name" $*
 	cd "$cwd"
+
+	echo "Installed ${package_name} to ${PREFIX_PATH}" >&2
 }
 
 download_package() {
