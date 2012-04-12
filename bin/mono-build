@@ -196,9 +196,15 @@ if [ -z "$PREFIX_PATH" ]; then
 	usage
 fi
 
+if [ -z "$TMPDIR" ]; then
+	TMP="/tmp"
+else
+	TMP="${TMPDIR%/}"
+fi
+
 SEED="$(date "+%Y%m%d%H%M%S").$$"
-LOG_PATH="/tmp/mono-build.${SEED}.log"
-TEMP_PATH="/tmp/mono-build.${SEED}"
+LOG_PATH="${TMP}/mono-build.${SEED}.log"
+TEMP_PATH="${TMP}/mono-build.${SEED}"
 CWD="$(pwd)"
 
 exec 4<> "$LOG_PATH" # open the log file at fd 4
