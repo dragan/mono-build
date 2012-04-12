@@ -99,10 +99,24 @@ version() {
 usage() {
 	version
 	echo "usage: mono-build definition prefix"
-	exit 1
+	
+	if [ -z "$1" ]; then
+		exit 1
+	fi
 }
 
 MONO_BUILD_ROOT="$(abs_dirname "$0")/.."
+
+case "$1" in
+"-h" | "--help" )
+	usage without_exiting
+	exit 0
+	;;
+"--version" )
+	version
+	exit 0
+	;;
+esac
 
 DEFINITION_PATH="$1"
 if [ -z "$DEFINITION_PATH" ]; then
