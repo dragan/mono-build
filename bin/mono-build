@@ -140,7 +140,7 @@ usage() {
 }
 
 list_definitions() {
-	{ for definition in "${MONO_BUILD_ROOT}/definitions/"*; do
+	{ for definition in "${MONO_BUILD_ROOT}/share/mono-build/"*; do
 		echo "${definition##*/}"
 	  done
 	} | sort
@@ -178,7 +178,7 @@ DEFINITION_PATH="$1"
 if [ -z "$DEFINITION_PATH" ]; then
 	usage
 elif [ ! -e "$DEFINITION_PATH" ]; then
-	BUILTIN_DEFINITION_PATH="${MONO_BUILD_ROOT}/definitions/${DEFINITION_PATH}"
+	BUILTIN_DEFINITION_PATH="${MONO_BUILD_ROOT}/share/mono-build/${DEFINITION_PATH}"
 	if [[ -e "$BUILTIN_DEFINITION_PATH" ]]; then
 		DEFINITION_PATH="$BUILTIN_DEFINITION_PATH"
 	else
