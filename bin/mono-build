@@ -98,7 +98,7 @@ version() {
 
 usage() {
 	version
-	echo "usage: mono-build [definition] [prefix]"
+	echo "usage: mono-build definition prefix"
 	exit 1
 }
 
