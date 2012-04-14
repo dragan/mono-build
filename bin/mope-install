@@ -26,3 +26,4 @@ VERSION_NAME="${DEFINITION##*/}"
 PREFIX="${MOPE_ROOT}/versions/${VERSION_NAME}"
 
 mono-build "$DEFINITION" "$PREFIX"
+mope rehash
