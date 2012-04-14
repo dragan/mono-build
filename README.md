@@ -14,7 +14,7 @@ Included is an uninstall script as well, just run it to remove mono-build.
 
     $ ./uninstall.sh
 
-If you only intend to use mono-build via [mope](https://github.com/dragan/mope), then you can install it locally as a plugin:
+If you only intend to use mono-build via [mope][mope], then you can install it locally as a plugin:
 
     $ mkdir -p ~/.mope/plugins
     $ cd ~/.mope/plugins
@@ -31,6 +31,16 @@ To install a Mono version, run the `mono-build` command with the path to a defin
     Copyright (C) 2002-2011 Novell, Inc, Xamarin, Inc and Contributors. www.mono-project.com
     ...
 
+To install a Mono version with [mope][mope]:
+
+mono-build provides a `mope-install` command that shortens
+
+    $ mono-build 2.10.9 /Users/dragan/local/mono-2.10.9
+
+to
+
+    $ mope install 2.10.9
+
 ## Thanks
 
 This project was heavily inspired by the [ruby-build](https://github.com/sstephenson/ruby-build) project by Sam Stephenson. 
@@ -39,3 +49,4 @@ This project was heavily inspired by the [ruby-build](https://github.com/sstephe
 mono-build is released under the [MIT License][mit-license]. See LICENSE for more information.
 
 [mit-license]: http://www.opensource.org/licenses/mit-license.php
+[mope]: https://github.com/dragan/mope
