@@ -2,7 +2,7 @@
 
 MONO_BUILD_VERSION="0.1.0"
 
-set -E
+set -e
 exec 3<&2 # preserve original stderr at fd 3
 
 resolve_link() {
@@ -140,7 +140,7 @@ build_package_mono() {
 	local package_name="$1"
 
 	local options=""
-	if [[ "Darwin" = "$(uname)" ]]; then
+	if [ "Darwin" = "$(uname)" ]; then
 		options="--with-glib=embedded --enable-nls=no"
 	fi
 	{ ./configure --prefix="$PREFIX_PATH" $options
@@ -153,7 +153,7 @@ build_package_mono_source() {
 	local package_name="$1"
 
 	local options=""
-	if [[ "Darwin" = "$(uname)" ]]; then
+	if [ "Darwin" = "$(uname)" ]; then
 		options="--with-glib=embedded --enable-nls=no"
 	fi
 	{ ./autogen.sh --prefix="$PREFIX_PATH" $options
@@ -289,7 +289,7 @@ if [ -z "$DEFINITION_PATH" ]; then
 	usage
 elif [ ! -e "$DEFINITION_PATH" ]; then
 	BUILTIN_DEFINITION_PATH="${MONO_BUILD_ROOT}/share/mono-build/${DEFINITION_PATH}"
-	if [[ -e "$BUILTIN_DEFINITION_PATH" ]]; then
+	if [ -e "$BUILTIN_DEFINITION_PATH" ]; then
 		DEFINITION_PATH="$BUILTIN_DEFINITION_PATH"
 	else
 		echo "mono-build: definition not found: ${DEFINITION_PATH}" >&2
