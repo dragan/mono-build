@@ -14,6 +14,12 @@ Included is an uninstall script as well, just run it to remove mono-build.
 
     $ ./uninstall.sh
 
+If you only intend to use mono-build via [mope](https://github.com/dragan/mope), then you can install it locally as a plugin:
+
+    $ mkdir -p ~/.mope/plugins
+    $ cd ~/.mope/plugins
+    $ git clone git://github.com/dragan/mono-build.git
+
 ## Installing Mono
 
 To install a Mono version, run the `mono-build` command with the path to a definition file (A number of [built-in definitions](https://github.com/dragan/mono-build/tree/unstable/share/mono-build) may be specified instead.) and the path where you want to install it.
