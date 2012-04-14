@@ -27,7 +27,7 @@ To install a Mono version, run the `mono-build` command with the path to a defin
 
 ## Thanks
 
-This project was heavily inspired by the [ruby-build project by Sam Stephenson](https://github.com/sstephenson/ruby-build). 
+This project was heavily inspired by the [ruby-build](https://github.com/sstephenson/ruby-build) project by Sam Stephenson. 
 
 ## License
 mono-build is released under the [MIT License][mit-license]. See LICENSE for more information.
