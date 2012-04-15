@@ -3,6 +3,11 @@
 set -e
 [ -n "$MOPE_DEBUG" ] && set -x
 
+# Provide mope completions
+if [ "$1" = "--complete" ]; then
+	exec mono-build --definitions
+fi
+
 if [ -z "$MOPE_ROOT" ]; then
 	MOPE_ROOT="${HOME}/.mope"
 fi
