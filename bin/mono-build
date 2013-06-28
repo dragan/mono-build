@@ -2,7 +2,7 @@
 
 MONO_BUILD_VERSION="0.1.0"
 
-set -e
+set -E
 exec 3<&2 # preserve original stderr at fd 3
 
 resolve_link() {

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -E
 [ -n "$MOPE_DEBUG" ] && set -x
 
 # Provide mope completions
