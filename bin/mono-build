@@ -141,7 +141,7 @@ build_package_mono() {
 
 	local options=""
 	if [ "Darwin" = "$(uname)" ]; then
-		options="--with-glib=embedded --enable-nls=no"
+		options="--disable-nls"
 	fi
 	{ ./configure --prefix="$PREFIX_PATH" $options
 	  make
@@ -154,7 +154,7 @@ build_package_mono_source() {
 
 	local options=""
 	if [ "Darwin" = "$(uname)" ]; then
-		options="--with-glib=embedded --enable-nls=no"
+		options="--disable-nls"
 	fi
 	{ ./autogen.sh --prefix="$PREFIX_PATH" $options
 	  make
